@@ -69,7 +69,7 @@ def scroll_down_followers():
 
         sleep(1)   
         n = 0
-        while(n < 400):
+        while(n < 200):
                 keyboard.press(Key.page_down) 
                 keyboard.release(Key.page_down) 
                 sleep(0.1)
@@ -77,27 +77,24 @@ def scroll_down_followers():
 
 
 def follow():
+
         x = 1
-        
-        while(x < 150):
+        while (x <= 175):
                 try:
-                        follow = webdriver.find_element_by_xpath('/html/body/div[4]/div/div/div[2]/ul/div/li['+ str(x) +']/div/div[3]/button')
-                        follow.click()   
-                        print("Seguidor: " + str(x))
-                        timer = randint(1,5)
+                        timer = randrange(10, 80)
                         sleep(timer)
-                        
+                        follow = webdriver.find_element_by_xpath('/html/body/div[4]/div/div/div[2]/ul/div/li[' + str(x) + ']/div/div[2]/button')
+                        follow.click()
+        
                 except:
+                        sleep(4)
                         cancel = webdriver.find_element_by_xpath('/html/body/div[5]/div/div/div/div[3]/button[2]')
                         cancel.click()
-                        print("Seguir o proximo")
-                        x = x-1
+                        x = x - 1
+            
+                x = x + 1
 
-                timer = randint(10,70)
-                j = 0
-                sleep(timer)
 
-        x = x+1 
                         
 
 
@@ -106,12 +103,10 @@ def unfollow():
         # Deixa de seguir todo mundo
         k = 1
         while (k < 150):
-                follow = webdriver.find_element_by_xpath('/html/body/div[4]/div/div/div[2]/ul/div/li['+ str(k) +']/div/div[3]/button')
+                follow = webdriver.find_element_by_xpath('/html/body/div[4]/div/div/div[2]/ul/div/li['+ str(k) +']/div/div[2]/button')
                 follow.click()
                 k = k+1
                 timer = randint(1,50)
-                keyboard.press(Key.page_down) 
-                keyboard.release(Key.page_down) 
 
                 sleep(timer)
                 unfollow = webdriver.find_element_by_xpath('/html/body/div[5]/div/div/div/div[3]/button[1]')
