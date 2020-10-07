@@ -20,9 +20,9 @@ def session_login():
         print("===============")
 
         username = webdriver.find_element_by_xpath('//*[@id="loginForm"]/div/div[1]/div/label/input')
-        username.send_keys('rafaelfelps62')
+        username.send_keys('your_login')
         password = webdriver.find_element_by_xpath('//*[@id="loginForm"]/div/div[2]/div/label/input')
-        password.send_keys('R@sfaeu123')
+        password.send_keys('your_password')
 
         # Clica no botão de fazer login
         button_login = webdriver.find_element_by_xpath('//*[@id="loginForm"]/div/div[3]/button')
