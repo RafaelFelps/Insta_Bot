@@ -15,10 +15,14 @@ sleep(3)
 
 def session_login():
         #  Faz o Login
+        print("===============")
+        print("=====LOGIN=====")
+        print("===============")
+
         username = webdriver.find_element_by_xpath('//*[@id="loginForm"]/div/div[1]/div/label/input')
-        username.send_keys('your_login')
+        username.send_keys('rafaelfelps62')
         password = webdriver.find_element_by_xpath('//*[@id="loginForm"]/div/div[2]/div/label/input')
-        password.send_keys('your_password')
+        password.send_keys('R@sfaeu123')
 
         # Clica no botão de fazer login
         button_login = webdriver.find_element_by_xpath('//*[@id="loginForm"]/div/div[3]/button')
@@ -28,6 +32,9 @@ def session_login():
 
 
 def search_page():
+        print("================")
+        print("=====SEARCH=====")
+        print("================")
         #  Faz a busca na barra de pesquisa
         search_bar = webdriver.find_element_by_xpath('//*[@id="react-root"]/section/nav/div[2]/div/div/div[2]/input')
         search_bar.send_keys('contabilizei')
@@ -44,6 +51,9 @@ def search_page():
         sleep(5)
 
 def scroll_down_followers():
+        print("================")
+        print("=====SCROLL=====")
+        print("================")
         #scroll down modal de seguidores
         l = 0
         while (l <= 2):
@@ -77,11 +87,13 @@ def scroll_down_followers():
 
 
 def follow():
-
+        print("================")
+        print("=====FOLLOW=====")
+        print("================")
         x = 1
-        while (x <= 175):
+        while (x <= 200):
                 try:
-                        timer = randrange(10, 80)
+                        timer = randint(10, 80)
                         sleep(timer)
                         follow = webdriver.find_element_by_xpath('/html/body/div[4]/div/div/div[2]/ul/div/li[' + str(x) + ']/div/div[2]/button')
                         follow.click()
@@ -91,7 +103,7 @@ def follow():
                         cancel = webdriver.find_element_by_xpath('/html/body/div[5]/div/div/div/div[3]/button[2]')
                         cancel.click()
                         x = x - 1
-            
+                print(str(x))
                 x = x + 1
 
 
@@ -100,9 +112,12 @@ def follow():
 
 
 def unfollow():
+        print("==================")
+        print("=====UNFOLLOW=====")
+        print("==================")
         # Deixa de seguir todo mundo
         k = 1
-        while (k < 150):
+        while (k <= 200):
                 follow = webdriver.find_element_by_xpath('/html/body/div[4]/div/div/div[2]/ul/div/li['+ str(k) +']/div/div[2]/button')
                 follow.click()
                 k = k+1
@@ -112,7 +127,8 @@ def unfollow():
                 unfollow = webdriver.find_element_by_xpath('/html/body/div[5]/div/div/div/div[3]/button[1]')
                 unfollow.click()
                 sleep(0.3)
-        print("Fim do segundo loop") 
+                print(str(k))
+
 
 #Faz o login
 session_login()
@@ -123,8 +139,9 @@ search_page()
 #Percorre o modal de seguidores
 scroll_down_followers()
 
-# Segue X pessoas
-follow()
+while True:
+        # Segue X pessoas
+        follow()
 
-#Deixa de seguir X pessoas
-unfollow()
+        #Deixa de seguir X pessoas
+        unfollow()
